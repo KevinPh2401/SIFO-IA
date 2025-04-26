@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block nombre %}Inicio{% endblock %}
+
+{% block Contenido %}
+<div class="inicio-container" style="background-image: url('{% static "libreria/images/fondo.png" %}');">
+    <img src="{% static 'libreria/images/Iconsifo.png' %}" alt="Iconsifo" class="inicio-icono">
+
+    <div class="inicio-overlay">
+        <div class="inicio-content text-left">
+            <h1 class="inicio-titulo" style="letter-spacing: 4px";>
+                <span style="color: black;">Bienvenido a</span>
+                <span style="color: #1767B6;">SIFO-IA</span>
+            </h1>
+            <p style="color:rgb(98, 101, 105); line-height: -2.5;" class="inicio-subtitulo">
+                Tu sistema de información favorito para una gestión más eficiente.
+                Simplificamos tus procesos, optimizamos tu tiempo y te ayudamos a tomar decisiones con mayor confianza.    </p>      
+            
+            <a class="btn btn-primary btn-lg mt-3 btn-explorar" href="#login-section" role="button" style="background-color:rgb(23, 103, 182); color: white;">Explorar</a>
+        </div>
+    </div>
+</div>
+
+<section id="login-section" class="login-section">
+    <div class="container login-container ">
+      <div class="login-box row">
+        
+        <!-- foto del login -->
+        <div class="col-md-6 login-carousel p-0">
+          <img src="{% static 'libreria/images/Iconsifo.png' %}" class="d-block w-100 h-100 object-fit-cover" alt="Imagen de login">
+        </div>
+        
+  
+        <!-- Formulario de login -->
+        <div class="col-md-6 login-form d-flex align-items-center">
+          <div class="w-100 px-4">
+            <h2 class="mb-4 text-blanck">Iniciar sesión</h2>
+            <form method="post">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="usuario" class="form-label text-black">Usuario</label>
+                <input type="text" class="form-control" id="usuario" name="usuario" required placeholder="Ingresar usuario">
+              </div>
+              <div class="mb-3">
+                <label for="clave" class="form-label text-black">Contraseña</label>
+                <input type="password" class="form-control" id="clave" name="contraseña" required placeholder="Ingresar contraseña">
+              </div>
+              <div class="mb-3">
+                <label for="codigo" class="form-label text-black">Código de empresa</label>
+                <input type="text" class="form-control" id="codigo" name="codigo_empresa" required placeholder="Ingresar código de acceso">
+              </div><br>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-success" style="background-color:rgb(23, 103, 182)">Ingresar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+    
+  </section>
+  
+  
+{% endblock %}
